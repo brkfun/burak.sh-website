@@ -112,7 +112,6 @@ return [
         'burak.sh' => [
             'deploy_path'  => '/home/admin/web/burak.sh/public_html',
             'user'         => 'admin',
-            'identityFile' => env('DEPLOY_KEY',''),
         ],
     ],
 

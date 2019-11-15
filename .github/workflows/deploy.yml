@@ -23,7 +23,11 @@ jobs:
         with:
           fetch-depth: 1
       - name: Create SSH KEY
-        run: echo "${{ secrets.SSH_PRIVATE_KEY }}" >> ~/priv_key
+        run: |
+            echo "${{ secrets.SSH_PRIVATE_KEY }}" | tr -d '\r' | ssh-add - > /dev/null
+            mkdir -p ~/.ssh
+            chmod 700 ~/.ssh
+            echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
       - name: Install composer dependencies
         run: |
             composer install --no-scripts

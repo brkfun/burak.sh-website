@@ -6,6 +6,9 @@ jobs:
   laravel-deploy:
     runs-on: ubuntu-latest
 
+    container:
+      image: qandend/laravel-deploy-runner:latest
+
     services:
       mysql:
         image: mysql:5.7

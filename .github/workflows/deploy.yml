@@ -24,6 +24,7 @@ jobs:
           fetch-depth: 1
       - name: Create SSH KEY
         run: |
+            eval `ssh-agent -s`
             echo "${{ secrets.SSH_PRIVATE_KEY }}" | tr -d '\r' | ssh-add - > /dev/null
             mkdir -p ~/.ssh
             chmod 700 ~/.ssh

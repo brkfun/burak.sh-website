@@ -45,18 +45,18 @@ return [
 
     'hooks' => [
         // Right before we start deploying.
-        'start' => [
+        'start'   => [
             //
         ],
 
         // Code and composer vendors are ready but nothing is built.
-        'build' => [
+        'build'   => [
             'yarn:install',
             'yarn:production',
         ],
 
         // Deployment is done but not live yet (before symlink)
-        'ready' => [
+        'ready'   => [
             'artisan:storage:link',
             'artisan:view:clear',
             'artisan:cache:clear',
@@ -65,7 +65,7 @@ return [
         ],
 
         // Deployment is done and live
-        'done' => [
+        'done'    => [
             'fpm:reload',
         ],
 
@@ -75,7 +75,7 @@ return [
         ],
 
         // Deployment failed.
-        'fail' => [
+        'fail'    => [
             //
         ],
     ],
@@ -92,8 +92,8 @@ return [
     */
 
     'options' => [
-        'application' => env('APP_NAME', 'Laravel'),
-        'repository' => 'https://github.com/brkfun/burak.sh-website.git',
+        'application'     => env('APP_NAME', 'Laravel'),
+        'repository'      => 'https://github.com/brkfun/burak.sh-website.git',
         'php_fpm_service' => 'php7.3-fpm',
     ],
 
@@ -110,9 +110,9 @@ return [
 
     'hosts' => [
         'burak.sh' => [
-            'deploy_path' => '/home/admin/web/burak.sh/public_html',
-            'user' => 'admin',
-            'identityFile' => 'priv_key',
+            'deploy_path'  => '/home/admin/web/burak.sh/public_html',
+            'user'         => 'admin',
+            'identityFile' => env('DEPLOY_KEY',''),
         ],
     ],
 

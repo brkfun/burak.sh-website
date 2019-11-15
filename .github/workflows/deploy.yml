@@ -28,7 +28,7 @@ jobs:
         run: |
             composer install --no-scripts
       - name: Prepare Laravel Application
-        run: |"
+        run: |
             cp .env.example .env
             php artisan key:generate
       - name: Deploy

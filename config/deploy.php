@@ -110,8 +110,9 @@ return [
 
     'hosts' => [
         'burak.sh' => [
-            'deploy_path'  => '/home/admin/web/burak.sh/public_html',
-            'user'         => 'admin',
+            'deploy_path' => '/home/admin/web/burak.sh/public_html',
+            'user'        => 'admin',
+            'branch'      => 'master'
         ],
     ],
 

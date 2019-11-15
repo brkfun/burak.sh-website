@@ -4,7 +4,7 @@ on: [push]
 
 jobs:
   laravel-deploy:
-    runs-on: self-hosted
+    runs-on: ubuntu
 
     container:
       image: kirschbaumdevelopment/laravel-test-runner:7.3.0
@@ -13,8 +13,8 @@ jobs:
       mysql:
         image: mysql:5.7
         env:
-          MYSQL_ROOT_PASSWORD: password
-          MYSQL_DATABASE: test
+          MYSQL_ROOT_PASSWORD: secret
+          MYSQL_DATABASE: burak.sh
         ports:
           - 33306:3306
         options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
@@ -22,12 +22,13 @@ jobs:
       - uses: actions/checkout@v1
         with:
           fetch-depth: 1
-
+      - name: Create SSH KEY
+        run: echo "${{ secrets.SSH_PRIVATE_KEY }}" >> priv_key
       - name: Install composer dependencies
         run: |
             composer install --no-scripts
       - name: Prepare Laravel Application
-        run: |
+        run: |"
             cp .env.example .env
             php artisan key:generate
       - name: Deploy

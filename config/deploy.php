@@ -37,7 +37,7 @@ return [
     | Hooks
     |--------------------------------------------------------------------------
     |
-    | Hooks let you customize your deployments conveniently by pushing tasks 
+    | Hooks let you customize your deployments conveniently by pushing tasks
     | into strategic places of your deployment flow. Each of the official
     | strategies invoke hooks in different ways to implement their logic.
     |
@@ -48,13 +48,13 @@ return [
         'start' => [
             //
         ],
-        
+
         // Code and composer vendors are ready but nothing is built.
         'build' => [
             'yarn:install',
             'yarn:production',
         ],
-        
+
         // Deployment is done but not live yet (before symlink)
         'ready' => [
             'artisan:storage:link',
@@ -63,17 +63,17 @@ return [
             'artisan:config:cache',
             'artisan:migrate',
         ],
-        
+
         // Deployment is done and live
         'done' => [
             'fpm:reload',
         ],
-        
+
         // Deployment succeeded.
         'success' => [
             //
         ],
-        
+
         // Deployment failed.
         'fail' => [
             //
@@ -112,6 +112,7 @@ return [
         'burak.sh' => [
             'deploy_path' => '/home/admin/web/burak.sh/public_html',
             'user' => 'admin',
+            'identityFile' => 'priv_key',
         ],
     ],
 
@@ -135,7 +136,7 @@ return [
     | Include additional Deployer recipes
     |--------------------------------------------------------------------------
     |
-    | Here, you can add any third party recipes to provide additional tasks, 
+    | Here, you can add any third party recipes to provide additional tasks,
     | options and strategies. Therefore, it also allows you to create and
     | include your own recipes to define more complex deployment flows.
     |

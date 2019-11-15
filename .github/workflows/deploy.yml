@@ -22,12 +22,14 @@ jobs:
       - uses: actions/checkout@v1
         with:
           fetch-depth: 1
-      - uses: webfactory/ssh-agent@v0.1.1
-        with:
-          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-      - name: Install composer dependencies
         run: |
-            composer install --no-scripts
+          eval $(ssh-agent -s)
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" | tr -d '\r' | ssh-add - > /dev/null
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
+          echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
+      - name: Install composer dependencies
+        run: composer install --no-scripts
       - name: Prepare Laravel Application
         run: |
             cp .env.example .env

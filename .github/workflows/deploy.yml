@@ -16,7 +16,7 @@ jobs:
           mkdir -p ~/.ssh
           chmod 700 ~/.ssh
           echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" >> ~/priv_key
+          echo -e "${{ secrets.SSH_PRIVATE_KEY }}" > ~/priv_key
       - name: Install composer dependencies
         run: composer install --no-scripts
       - name: Prepare Laravel Application

@@ -2,15 +2,4 @@
 
 @section('content')
     <app-component></app-component>
-    <app-component></app-component>
-    <app-component></app-component>
-    <app-component></app-component>
-    <app-component></app-component>
-    <app-component></app-component>
-    <app-component></app-component>
-    <app-component></app-component>
-    <app-component></app-component>
-    <app-component></app-component>
-    <app-component></app-component>
-    <app-component></app-component>
 @endsection

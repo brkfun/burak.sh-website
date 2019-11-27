@@ -1,8 +1,43 @@
 // Fonts
 @import url('https://fonts.googleapis.com/css?family=Nunito');
-
 // Variables
 @import 'variables';
-
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
+
+.footer-container {
+    z-index: 9999999;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+.footer{
+    padding:1em;
+    left: 0;
+    width: 100%;
+    height: 6em;
+}
+.footer-inner{
+    margin: 1em;
+}
+.header-container{
+    z-index: 9999999;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+.header{
+    padding:0.3em;
+    left: 0;
+    width: 100%;
+    height: 3em;
+}
+.header-inner{
+    margin: 0.3em;
+}
+.realistic-container{
+    margin-top: 3em;
+    margin-bottom: 6em;
+}
